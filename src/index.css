@@ -1,0 +1,46 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Comfortaa:wght@400;600&family=Inter:wght@400;600&family=Poppins&family=Reem+Kufi+Fun:wght@400;700&family=Revalia&family=Roboto:wght@400;500;700&family=Ubuntu:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 1rem 10rem;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+}

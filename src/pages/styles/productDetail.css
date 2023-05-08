@@ -1,0 +1,26 @@
+.similar-products-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+  gap: 4rem
+}
+
+.product-selected {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+}
+
+@media(max-width: 1100px) {
+  .product-selected {
+    flex-direction: column;
+  }
+}
+
+.similar-items-container {
+  margin-top: 3rem;
+}

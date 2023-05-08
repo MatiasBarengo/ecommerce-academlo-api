@@ -1,0 +1,15 @@
+.products-container {
+  width: 100%;
+  max-width: 1100px;
+  padding: 3rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+@media(max-width: 1100px) {
+  .products-container {
+    justify-content: center;
+  }
+}
