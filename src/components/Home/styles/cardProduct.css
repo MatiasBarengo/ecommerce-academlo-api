@@ -1,7 +1,7 @@
 .product {
   width: 100%;
   max-width: 280px;
-  border: 1px solid #707070;
+  border: 1px solid #bababa;
   border-radius: 10px;
   cursor: pointer;
   transition: transform 200ms ease;
@@ -15,7 +15,7 @@
 .product-header {
   width: 100%;
   aspect-ratio: 1.1;
-  border-bottom: 1px solid #707070;
+  border-bottom: 1px solid #bababa;
   position: relative;
   display: flex;
   justify-content: center;
@@ -66,7 +66,7 @@
 
 .product-price-label {
   font-size: 0.9rem;
-  color: #707070;
+  color: #bababa;
 }
 
 .product-price-number {
@@ -84,7 +84,7 @@
   aspect-ratio: 1;
   border-radius: 50%;
   justify-self: end;
-  background-color: #060606;
+  background-color: #232323;
   color: white;
 }
 

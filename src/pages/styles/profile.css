@@ -31,7 +31,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #707070;
+  border-bottom: 1px solid #bababa;
 }
 
 p {
@@ -39,7 +39,7 @@ p {
 }
 
 .change-data {
-  color: #060606;
+  color: #232323;
   cursor: pointer;
 }
 
@@ -72,7 +72,7 @@ p {
 
 .close {
   position: absolute;
-  color: #060606;
+  color: #232323;
   top: 10px;
   right: 10px;
 }

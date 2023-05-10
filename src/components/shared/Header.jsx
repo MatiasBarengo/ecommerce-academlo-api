@@ -24,11 +24,11 @@ const Header = () =>
           <li className='navbar-li'><Link className='li-Link title' to={ '/' }>E-Commerce</Link></li>
         </ul>
         <ul className='navbar-ul concealable'>
-          <li className='navbar-li' title='Profile'>
-            <Link className='li-Link' to={ '/profile' }><i className="fa-solid fa-user"></i></Link>
-          </li>
           <li className='navbar-li' title='Login'>
             <Link className='li-Link' to={ '/login' }><i className="fa-solid fa-right-to-bracket"></i></Link>
+          </li>
+          <li className='navbar-li' title='Profile'>
+            <Link className='li-Link' to={ '/profile' }><i className="fa-solid fa-user"></i></Link>
           </li>
           <li className='navbar-li' title='Search'>
             <i className="fa-solid fa-magnifying-glass"></i>
@@ -37,7 +37,7 @@ const Header = () =>
             <li className='navbar-li' title='Cart'>
               <Link className='li-Link' to={ '/cart' }><i className="fa-solid fa-cart-shopping"></i></Link>
             </li>
-            <div className={ `cart-quantity ${ cartQuantity === 0 ? 'empty' : '' }` }>
+            <div className={ `cart-quantity ${ cartQuantity === 0 || cartQuantity === undefined ? 'empty' : '' }` }>
               <p>{ cartQuantity }</p>
             </div>
           </div>
