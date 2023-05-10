@@ -26,7 +26,8 @@ const Login = () =>
         localStorage.setItem( 'token', res.data.token )
         Swal.fire( {
           title: 'Se inicio sesion con exito',
-          icon: 'success'
+          icon: 'success',
+          confirmButtonColor: '#232323'
         } )
         navigate( '/' )
         window.location.reload( true )
@@ -38,7 +39,8 @@ const Login = () =>
         dispatch( setIsLoading( false ) )
         Swal.fire( {
           title: 'Usuario o contraseña invalidos',
-          icon: 'error'
+          icon: 'error',
+          confirmButtonColor: '#232323'
         } )
       } )
   }

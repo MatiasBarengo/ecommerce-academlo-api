@@ -6,7 +6,7 @@
   width: 100%;
   min-width: 350px;
   z-index: 2;
-  border-bottom: 2px solid #bababa;
+  border-bottom: 2px solid #707070;
   display: flex;
   align-items: center;
 }
@@ -19,6 +19,7 @@
 .navbar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
 }
 
@@ -40,7 +41,7 @@
 }
 
 .li-Link {
-  color: #232323;
+  color: #060606;
 }
 
 .cart-container {

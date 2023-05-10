@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import './styles/header.css'
 import { useSelector } from 'react-redux';
+import './styles/header.css'
+import DropdownMenu from './DropdownMenu';
 
 
 const Header = () =>
@@ -14,7 +15,11 @@ const Header = () =>
 
   useEffect( () =>
   {
-    setCartQuantity( cart?.length )
+    setCartQuantity( cart?.reduce( ( acc, cv ) =>
+    {
+      let total = cv.quantity + acc
+      return total
+    }, 0 ) )
   }, [ cart ] )
 
   return (
@@ -23,6 +28,7 @@ const Header = () =>
         <ul className='navbar-ul'>
           <li className='navbar-li'><Link className='li-Link title' to={ '/' }>E-Commerce</Link></li>
         </ul>
+        <DropdownMenu />
         <ul className='navbar-ul concealable'>
           <li className='navbar-li' title='Login'>
             <Link className='li-Link' to={ '/login' }><i className="fa-solid fa-right-to-bracket"></i></Link>

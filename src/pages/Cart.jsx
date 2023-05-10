@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import CartProduct from '../components/Cart/CartProduct';
 import axios from 'axios';
 import { getUserCart } from '../store/slices/cart.slice';
+import './styles/cart.css'
 
 const Cart = () =>
 {
@@ -17,7 +18,8 @@ const Cart = () =>
         Authorization: `Bearer ${ localStorage.getItem( 'token' ) }`
       }
     }
-    axios.post( 'https://e-commerce-api-v2.academlo.tech/api/v1/purchases', header )
+
+    axios.post( 'https://e-commerce-api-v2.academlo.tech/api/v1/purchases', {}, header )
       .then( res =>
       {
         console.log( res.data )
@@ -27,11 +29,11 @@ const Cart = () =>
       {
         console.log( err )
         console.log( header );
-      } )
-  }
+      } );
+  };
 
   return (
-    <section>
+    <section className='cart-component-container'>
       <h2>Cart</h2>
       <div>
         {

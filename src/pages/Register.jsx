@@ -19,7 +19,7 @@ const Register = () =>
         console.log( res.data );
         Swal.fire( {
           title: 'Se ha registrado con exito',
-          icon: 'success'
+          icon: 'success',
         } )
         navigate( '/login' )
       } )
@@ -28,7 +28,8 @@ const Register = () =>
         console.log( err );
         Swal.fire( {
           title: 'No se ha podido registrar el usuario',
-          icon: 'error'
+          icon: 'error',
+          confirmButtonColor: '#232323'
         } )
       } )
   }

@@ -45,7 +45,8 @@ const CardProduct = ( { product } ) =>
         dispatch( setIsLoading( false ) )
         Swal.fire( {
           title: `Se ha agregado un "${ product.title }" a tu carrito de compras`,
-          icon: 'success'
+          icon: 'success',
+          confirmButtonColor: '#232323'
         } )
       } )
       .catch( err =>
@@ -67,7 +68,8 @@ const CardProduct = ( { product } ) =>
               dispatch( setIsLoading( false ) )
               Swal.fire( {
                 title: `Se ha agregado otro "${ product.title }" a tu carrito de compras`,
-                icon: 'success'
+                icon: 'success',
+                confirmButtonColor: '#232323'
               } )
             } )
             .catch( err => console.log( err ) )

@@ -1,0 +1,10 @@
+.dropdown-container {
+  display: none;
+}
+
+@media(max-width:800px) {
+  .dropdown-container {
+    display: flex;
+    font-size: 1.5rem;
+  }
+}

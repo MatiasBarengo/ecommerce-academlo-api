@@ -27,7 +27,8 @@ const Profile = () =>
   {
     Swal.fire( {
       icon: 'error',
-      title: 'Proximamente'
+      title: 'Proximamente',
+      confirmButtonColor: '#232323'
     } )
     // setChangeData( !changeData )
   }
