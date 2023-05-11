@@ -69,6 +69,11 @@ const Login = () =>
         <button className='form-btn' type="">Login</button>
         <Link className='Link' to={ '/register' }>You do not have an account yet?</Link>
       </form>
+      <div className='test-container'>
+        <p>You can test this App with the following user:</p>
+        <span><b>user:</b>test@test.com</span>
+        <span><b>password:</b>1234</span>
+      </div>
     </div>
   );
 };
