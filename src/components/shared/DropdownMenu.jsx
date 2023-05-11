@@ -17,10 +17,14 @@ const DropdownMenu = () =>
 
   return (
     <div className='dropdown-container'>
-      <i onClick={ handleMenu } className="fa-solid fa-bars"></i>
+      <i onClick={ handleMenu } className="menu-icon fa-solid fa-bars"></i>
       {
         menu ? (
-          <div className='menu-container'>
+          <div onClick={ handleMenu } className='menu-container'>
+            <Link onClick={ handleMenu } className='menu-link' to={ '/' }>
+              <i className="fa-solid fa-house"></i>
+              <span>Home</span>
+            </Link>
             <Link onClick={ handleMenu } className='menu-link' to={ '/login' }>
               <i className="fa-solid fa-right-to-bracket"></i>
               <span>Login</span>

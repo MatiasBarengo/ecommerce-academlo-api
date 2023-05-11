@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setIsLoading } from '../store/slices/isLoading.slice';
 import { setUser } from '../store/slices/user.slice';
+import { getUserCart } from '../store/slices/cart.slice';
 
 const Login = () =>
 {
@@ -26,13 +27,16 @@ const Login = () =>
         console.log( 'token', res.data.token );
         dispatch( setUser( res.data.user ) )
         localStorage.setItem( 'token', res.data.token )
-        window.location.reload()
         Swal.fire( {
+          toast: true,
+          timer: 2000,
+          position: 'top-end',
           title: 'Se inicio sesion con exito',
           icon: 'success',
           confirmButtonColor: '#232323'
         } )
         navigate( '/' )
+        dispatch( getUserCart() )
         dispatch( setIsLoading( false ) )
       } )
       .catch( error =>
@@ -40,6 +44,9 @@ const Login = () =>
         console.log( error )
         dispatch( setIsLoading( false ) )
         Swal.fire( {
+          toast: true,
+          timer: 2000,
+          position: 'top-end',
           title: 'Usuario o contraseña invalidos',
           icon: 'error',
           confirmButtonColor: '#232323'

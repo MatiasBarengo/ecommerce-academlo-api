@@ -40,6 +40,9 @@ const Profile = () =>
   const handleData = () =>
   {
     Swal.fire( {
+      toast: true,
+      timer: 2000,
+      position: 'top-end',
       icon: 'error',
       title: 'Proximamente',
       confirmButtonColor: '#232323'

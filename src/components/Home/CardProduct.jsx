@@ -47,6 +47,9 @@ const CardProduct = ( { product } ) =>
           dispatch( getUserCart() )
           dispatch( setIsLoading( false ) )
           Swal.fire( {
+            toast: true,
+            timer: 2000,
+            position: 'top-end',
             title: `Se ha agregado un "${ product.title }" a tu carrito de compras`,
             icon: 'success',
             confirmButtonColor: '#232323'
@@ -70,6 +73,9 @@ const CardProduct = ( { product } ) =>
                 dispatch( getUserCart() )
                 dispatch( setIsLoading( false ) )
                 Swal.fire( {
+                  toast: true,
+                  timer: 2000,
+                  position: 'top-end',
                   title: `Se ha agregado otro "${ product.title }" a tu carrito de compras`,
                   icon: 'success',
                   confirmButtonColor: '#232323'

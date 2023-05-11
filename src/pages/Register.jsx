@@ -18,6 +18,9 @@ const Register = () =>
       {
         console.log( res.data );
         Swal.fire( {
+          toast: true,
+          timer: 2000,
+          position: 'top-end',
           title: 'Se ha registrado con exito',
           icon: 'success',
         } )
@@ -27,6 +30,9 @@ const Register = () =>
       {
         console.log( err );
         Swal.fire( {
+          toast: true,
+          position: 'top-end',
+          timer: 2000,
           title: 'No se ha podido registrar el usuario',
           icon: 'error',
           confirmButtonColor: '#232323'
