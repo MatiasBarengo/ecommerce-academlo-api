@@ -14,6 +14,7 @@ import Profile from './pages/Profile'
 import Cart from './pages/Cart'
 import { getUser } from './store/slices/user.slice'
 import Aos from 'aos'
+import Purchases from './pages/Purchases'
 
 function App ()
 {
@@ -39,6 +40,7 @@ function App ()
         <Route path='/profile' element={ <Profile /> } />
         <Route path='/cart' element={ <Cart /> } />
         <Route path='/product/:id' element={ <ProductDetail /> } />
+        <Route path='/purchases' element={ <Purchases /> } />
       </Routes>
     </div>
   )

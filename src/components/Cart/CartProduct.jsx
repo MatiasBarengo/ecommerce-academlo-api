@@ -1,9 +1,13 @@
 import React from 'react';
 import './styles/cartProduct.css'
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { setIsLoading } from '../../store/slices/isLoading.slice';
 
 const CartProduct = ( { product } ) =>
 {
+
+  const dispatch = useDispatch()
 
   const handleDelete = () =>
   {
@@ -12,9 +16,18 @@ const CartProduct = ( { product } ) =>
         Authorization: `Bearer ${ localStorage.getItem( 'token' ) }`
       }
     }
+    dispatch( setIsLoading( true ) )
     axios.delete( `https://e-commerce-api-v2.academlo.tech/api/v1/cart/${ product.id }`, header )
-      .then( res => window.location.reload() )
-      .catch( err => console.log( err ) )
+      .then( res =>
+      {
+        window.location.reload()
+        dispatch( setIsLoading( false ) )
+      } )
+      .catch( err =>
+      {
+        console.log( err )
+        dispatch( setIsLoading( false ) )
+      } )
   }
 
   console.log( 'product in cart', product );

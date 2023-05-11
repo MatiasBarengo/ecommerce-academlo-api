@@ -2,12 +2,16 @@ import React, { useEffect, useState } from 'react';
 import './styles/profile.css'
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { useDispatch } from 'react-redux';
+import { setIsLoading } from '../store/slices/isLoading.slice';
 
 const Profile = () =>
 {
 
   const [ user, setUser ] = useState( {} );
   const [ changeData, setChangeData ] = useState( false )
+
+  const dispatch = useDispatch()
 
   useEffect( () =>
   {
@@ -17,8 +21,18 @@ const Profile = () =>
         Authorization: `Bearer ${ localStorage.getItem( 'token' ) }`
       }
     }
+    dispatch( setIsLoading( true ) )
     axios.get( url, headers )
-      .then( res => setUser( res.data ) )
+      .then( res =>
+      {
+        setUser( res.data )
+        dispatch( setIsLoading( false ) )
+      } )
+      .catch( err =>
+      {
+        console.log( err )
+        dispatch( setIsLoading( false ) )
+      } )
   }, [] )
 
   console.log( user );

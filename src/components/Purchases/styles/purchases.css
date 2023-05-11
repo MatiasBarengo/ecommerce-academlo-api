@@ -1,0 +1,27 @@
+.cart-product img {
+  height: 100px;
+  object-fit: contain;
+}
+
+.purchases-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.purchases-container h2 {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.date {
+  margin-top: 1rem;
+}
+
+.cant-cont {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}

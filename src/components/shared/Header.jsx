@@ -36,8 +36,8 @@ const Header = () =>
           <li className='navbar-li' title='Profile'>
             <Link className='li-Link' to={ user ? '/profile' : '/login' }><i className="fa-solid fa-user"></i></Link>
           </li>
-          <li className='navbar-li' title='Search'>
-            <i className="fa-solid fa-magnifying-glass"></i>
+          <li className='navbar-li' title='Purchases'>
+            <Link className='li-Link' to={ user ? '/purchases' : '/login' }><i className="fa-solid fa-bag-shopping"></i></Link>
           </li>
           <div className='cart-container'>
             <li className='navbar-li' title='Cart'>
