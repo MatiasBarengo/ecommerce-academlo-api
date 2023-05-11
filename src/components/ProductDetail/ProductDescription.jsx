@@ -5,6 +5,7 @@ import { setIsLoading } from '../../store/slices/isLoading.slice';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { getUserCart } from '../../store/slices/cart.slice';
+import { useNavigate } from 'react-router';
 
 const ProductDescription = ( { product } ) =>
 {
@@ -12,8 +13,10 @@ const ProductDescription = ( { product } ) =>
   const [ counter, setCounter ] = useState( 1 )
 
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const { cart } = useSelector( state => state )
+  const { user } = useSelector( state => state )
 
   const handleMinus = () =>
   {
@@ -30,47 +33,53 @@ const ProductDescription = ( { product } ) =>
 
   const handleCart = () =>
   {
-    dispatch( setIsLoading( true ) )
-    const url = 'https://e-commerce-api-v2.academlo.tech/api/v1/cart'
-    const headers = {
-      headers: {
-        Authorization: `Bearer ${ localStorage.getItem( 'token' ) }`
-      }
-    }
-    const data = {
-      quantity: counter,
-      productId: product.id
-    }
-    axios.post( url, data, headers )
-      .then( res =>
-      {
-        console.log( res.data )
-        dispatch( setIsLoading( false ) )
-      } )
-      .catch( err =>
-      {
-        if ( err.response.data.error === 'Product already added to cart' )
-        {
-          const productId = cart.filter( e => e.productId === product.id )[ 0 ].id
-          const urlPut = `https://e-commerce-api-v2.academlo.tech/api/v1/cart/${ productId }`
-          const prevQuantity = cart?.filter( e => e.productId === product.id )[ 0 ].quantity
-          const dataPut = {
-            quantity: prevQuantity + counter
-          }
-          axios.put( urlPut, dataPut, headers )
-            .then( res =>
-            {
-              dispatch( getUserCart() )
-              dispatch( setIsLoading( false ) )
-              Swal.fire( {
-                title: `Se ha agregado ${ counter } "${ product.title }" a tu carrito de compras`,
-                icon: 'success',
-                confirmButtonColor: '#232323'
-              } )
-            } )
-            .catch( err => console.log( err ) )
+    if ( user )
+    {
+      dispatch( setIsLoading( true ) )
+      const url = 'https://e-commerce-api-v2.academlo.tech/api/v1/cart'
+      const headers = {
+        headers: {
+          Authorization: `Bearer ${ localStorage.getItem( 'token' ) }`
         }
-      } )
+      }
+      const data = {
+        quantity: counter,
+        productId: product.id
+      }
+      axios.post( url, data, headers )
+        .then( res =>
+        {
+          console.log( res.data )
+          dispatch( setIsLoading( false ) )
+        } )
+        .catch( err =>
+        {
+          if ( err.response.data.error === 'Product already added to cart' )
+          {
+            const productId = cart.filter( e => e.productId === product.id )[ 0 ].id
+            const urlPut = `https://e-commerce-api-v2.academlo.tech/api/v1/cart/${ productId }`
+            const prevQuantity = cart?.filter( e => e.productId === product.id )[ 0 ].quantity
+            const dataPut = {
+              quantity: prevQuantity + counter
+            }
+            axios.put( urlPut, dataPut, headers )
+              .then( res =>
+              {
+                dispatch( getUserCart() )
+                dispatch( setIsLoading( false ) )
+                Swal.fire( {
+                  title: `Se ha agregado ${ counter } "${ product.title }" a tu carrito de compras`,
+                  icon: 'success',
+                  confirmButtonColor: '#232323'
+                } )
+              } )
+              .catch( err => console.log( err ) )
+          }
+        } )
+    } else
+    {
+      navigate( '/login' )
+    }
   }
 
   return (

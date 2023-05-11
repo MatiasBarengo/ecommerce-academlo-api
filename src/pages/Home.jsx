@@ -2,9 +2,11 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import CardProduct from '../components/Home/CardProduct';
 import './styles/home.css'
+import Aos from 'aos';
 
 const Home = () =>
 {
+  Aos.init()
 
   const products = useSelector( state => state.products )
 
@@ -14,7 +16,9 @@ const Home = () =>
         products?.map( product => (
           <CardProduct
             key={ product.id }
-            product={ product } />
+            product={ product }
+            data-aos='fade-left'
+          />
         ) )
       }
     </section>

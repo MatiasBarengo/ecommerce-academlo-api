@@ -12,6 +12,7 @@ import Loading from './components/shared/Loading'
 import './App.css'
 import Profile from './pages/Profile'
 import Cart from './pages/Cart'
+import { getUser } from './store/slices/user.slice'
 
 function App ()
 {
@@ -20,6 +21,7 @@ function App ()
   {
     dispatch( getAllProducts() )
     dispatch( getUserCart() )
+    dispatch( getUser() )
   }, [] )
 
   const { isLoading } = useSelector( state => state )

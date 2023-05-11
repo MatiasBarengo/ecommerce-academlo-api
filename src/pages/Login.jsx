@@ -7,6 +7,7 @@ import './styles/login.css'
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setIsLoading } from '../store/slices/isLoading.slice';
+import { setUser } from '../store/slices/user.slice';
 
 const Login = () =>
 {
@@ -23,14 +24,15 @@ const Login = () =>
       {
         console.log( res.data )
         console.log( 'token', res.data.token );
+        dispatch( setUser( res.data.user ) )
         localStorage.setItem( 'token', res.data.token )
+        window.location.reload()
         Swal.fire( {
           title: 'Se inicio sesion con exito',
           icon: 'success',
           confirmButtonColor: '#232323'
         } )
         navigate( '/' )
-        window.location.reload( true )
         dispatch( setIsLoading( false ) )
       } )
       .catch( error =>

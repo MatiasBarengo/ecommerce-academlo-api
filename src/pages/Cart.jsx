@@ -8,8 +8,8 @@ import './styles/cart.css'
 const Cart = () =>
 {
 
-  const { cart } = useSelector( state => state )
-  const dispatch = useDispatch()
+  const { cart } = useSelector( state => state );
+  const dispatch = useDispatch();
 
   const handleCheckout = () =>
   {
@@ -17,17 +17,17 @@ const Cart = () =>
       headers: {
         Authorization: `Bearer ${ localStorage.getItem( 'token' ) }`
       }
-    }
+    };
 
     axios.post( 'https://e-commerce-api-v2.academlo.tech/api/v1/purchases', {}, header )
       .then( res =>
       {
-        console.log( res.data )
-        dispatch( getUserCart() )
+        console.log( res.data );
+        dispatch( getUserCart() );
       } )
       .catch( err =>
       {
-        console.log( err )
+        console.log( err );
       } );
   };
 

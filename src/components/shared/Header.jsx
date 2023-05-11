@@ -11,6 +11,7 @@ const Header = () =>
   const [ cartQuantity, setCartQuantity ] = useState( 0 )
 
   const { cart } = useSelector( state => state )
+  const { user } = useSelector( state => state )
 
   useEffect( () =>
   {
@@ -33,14 +34,14 @@ const Header = () =>
             <Link className='li-Link' to={ '/login' }><i className="fa-solid fa-right-to-bracket"></i></Link>
           </li>
           <li className='navbar-li' title='Profile'>
-            <Link className='li-Link' to={ '/profile' }><i className="fa-solid fa-user"></i></Link>
+            <Link className='li-Link' to={ user ? '/profile' : '/login' }><i className="fa-solid fa-user"></i></Link>
           </li>
           <li className='navbar-li' title='Search'>
             <i className="fa-solid fa-magnifying-glass"></i>
           </li>
           <div className='cart-container'>
             <li className='navbar-li' title='Cart'>
-              <Link className='li-Link' to={ '/cart' }><i className="fa-solid fa-cart-shopping"></i></Link>
+              <Link className='li-Link' to={ user ? '/cart' : 'login' }><i className="fa-solid fa-cart-shopping"></i></Link>
             </li>
             <div className={ `cart-quantity ${ cartQuantity === 0 || cartQuantity === undefined ? 'empty' : '' }` }>
               <p>{ cartQuantity }</p>
