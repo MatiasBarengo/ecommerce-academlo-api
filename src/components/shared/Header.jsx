@@ -11,7 +11,6 @@ const Header = () =>
   const [ cartQuantity, setCartQuantity ] = useState( 0 )
 
   const { cart } = useSelector( state => state )
-  console.log( cart );
 
   useEffect( () =>
   {

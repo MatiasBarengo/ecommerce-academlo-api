@@ -28,34 +28,43 @@ const Cart = () =>
       .catch( err =>
       {
         console.log( err )
-        console.log( header );
       } );
   };
 
   return (
     <section className='cart-component-container'>
-      <h2>Cart</h2>
-      <div>
-        {
-          cart?.map( ( product ) => (
-            <CartProduct
-              key={ product.id }
-              product={ product } />
-          ) )
-        }
-      </div>
-      <footer>
-        <span>Total:</span>
-        <p>${
-          cart ?
-            cart.reduce( ( acc, cv ) =>
-            {
-              let total = cv.product.price * cv.quantity + acc
-              total = Number( total.toFixed( 2 ) )
-              return total
-            }, 0 ) : '0.00'
-        }</p>
-        <button onClick={ handleCheckout }>Checkout</button>
+      <h2 className='cart-title'>Cart</h2>
+      {
+        cart?.length === 0 ? (
+          <p>Your cart is Empty!</p>
+        )
+          : (
+            <div className='cart-card'>
+              {
+                cart?.map( ( product ) => (
+                  <CartProduct
+                    key={ product.id }
+                    product={ product } />
+                ) )
+              }
+            </div>
+          )
+      }
+
+      <footer className='cart-footer'>
+        <div>
+          <span>Total:</span>
+          <p>${
+            cart ?
+              cart.reduce( ( acc, cv ) =>
+              {
+                let total = cv.product.price * cv.quantity + acc
+                total = Number( total.toFixed( 2 ) )
+                return total
+              }, 0 ) : '0.00'
+          }</p>
+        </div>
+        <button className='checkout-btn' onClick={ handleCheckout }>Checkout</button>
       </footer>
     </section>
   );
