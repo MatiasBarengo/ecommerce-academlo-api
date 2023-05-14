@@ -51,6 +51,7 @@ const ProductDescription = ({ product }) => {
             .post(url, data, headers)
             .then((res) => {
               console.log(res.data);
+              dispatch(getUserCart());
               dispatch(setIsLoading(false));
             })
             .catch((err) => {
